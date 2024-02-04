@@ -1,0 +1,2 @@
+#define DesperationEngine_VERSION_MAJOR @DesperationEngine_VERSION_MAJOR@
+#define DesperationEngine_VERSION_MINOR @DesperationEngine_VERSION_MINOR@
