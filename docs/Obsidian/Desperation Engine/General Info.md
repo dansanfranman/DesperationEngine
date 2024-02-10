@@ -1,0 +1,1 @@
+The chosen renderer will provide two public methods for use within the engine. [[Init]] and [[Render]]. [[Init]] will perform the initial setup required for the renderer. It will establish that external rendering libraries were successfully loaded, that the window was created successfully, and that the required version of the given [[rendering API]] is supported on this machine

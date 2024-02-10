@@ -25,9 +25,15 @@ int main()
                 ServiceLocator::GetLogger()->Error("Renderer failed to init", __FILE__, __LINE__);
                 return -1;
         }
-
-        while(renderer.Render() > -1)
+        double renderTime = 0.0;
+        double amt = 0.01;
+        while(renderer.Render(renderTime) > -1)
         {
+                renderTime += amt;
+                if(renderTime >= 1 || renderTime <= -1)
+                {
+                        amt *= -1;
+                }
                 // we're cooking with gas baby
         }
         // std::string testMessage = "Hello World!" + " Your version number is: " + DesperationEngine_VERSION_MAJOR + "." + DesperationEngine_VERSION_MINOR;

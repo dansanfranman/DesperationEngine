@@ -11,8 +11,12 @@
             "id": "0bd4bb30bfcd3bfd",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Rendering/Exposed Functionality/Render.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Rendering/Exposed Functionality/Render.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Rendering/Exposed Functionality/Render.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Rendering/Exposed Functionality/Render.md"
+              }
             }
           }
         ]
@@ -140,6 +148,20 @@
   },
   "active": "0bd4bb30bfcd3bfd",
   "lastOpenFiles": [
+    "rendering API.md",
+    "General Info.md",
+    "models.md",
+    "Rendering/Exposed Functionality/Render.md",
+    "Rendering/Exposed Functionality/Init.md",
+    "^.md",
+    "Rendering/Exposed Functionality",
+    "Test.md",
+    "Input",
+    "Audio",
+    "AI",
+    "Physics",
+    "Rendering",
+    "General",
     "Welcome.md",
     "create a link.md"
   ]

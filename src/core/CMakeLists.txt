@@ -1,6 +1,7 @@
 SET(CORE_MODULES
                 Logging
                 ServiceProvider
+                DEMath
    )
 
 foreach(MODULE ${CORE_MODULES})

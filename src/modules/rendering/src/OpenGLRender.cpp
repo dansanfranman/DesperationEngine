@@ -50,14 +50,22 @@ int OpenGLRender::Init(GLuint width, GLuint height, const char* title)
         return 0;
 }
 
-int OpenGLRender::Render()
+int OpenGLRender::Render(double runtime)
 {
+        const GLfloat color[] = {(float)dem::fsin(runtime) * 0.5f + 0.5f,
+                                 (float)dem::fcos(runtime) * 0.5f + 0.5f,
+                                 0.0f,
+                                 1.0f};
         static const GLfloat red[] = { 1.0f, 0.0f, 0.0f, 1.0f };
         if(!glfwWindowShouldClose(window))
         {
-                glClearBufferfv(GL_COLOR, 0, red); //-- this line is causing issues, evidently i'm not using it correctly
+                glClearBufferfv(GL_COLOR, 0, color);
                 glfwSwapBuffers(window);
 
+                // TODO: glfwPollEvents will get user input which we will want to do at regular intervals
+                // Render is not going to be called at regular intervals, and so this is not a suitable place for
+                // this code to sit. It should be moved to within the fixed time processing step of the game loop
+                // when the game loop is available
                 glfwPollEvents();
                 return 0;
         }

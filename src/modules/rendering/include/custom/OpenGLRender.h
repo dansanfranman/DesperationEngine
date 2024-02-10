@@ -5,13 +5,14 @@
 #include "glfw3.h"
 
 #include "ServiceLocator.h"
+#include "DEMath.h"
 
 class OpenGLRender
 {
         public:
                 OpenGLRender();
                 int Init(GLuint width, GLuint height, const char* title);
-                int Render();
+                int Render(double runtime);
                 ~OpenGLRender();
         private:
                 GLFWwindow* window;

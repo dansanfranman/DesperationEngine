@@ -1,0 +1,1 @@
+Currently the only supported rendering API is OpenGL

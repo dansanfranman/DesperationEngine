@@ -4,6 +4,8 @@ cmake_minimum_required(VERSION 3.12)
 project(DesperationEngine VERSION 0.1)
 configure_file("${PROJECT_SOURCE_DIR}/include/DesperationConfig.h.in" "${PROJECT_SOURCE_DIR}/include/DesperationConfig.h")
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MD /EHsc")
+
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
