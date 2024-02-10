@@ -9,9 +9,7 @@
 
 void InitializeServices()
 {
-        WindowsLoggerProvider* wlp = new WindowsLoggerProvider();
-        wlp->Init();
-        ServiceLocator::SetLogger(*wlp);
+        ServiceLocator::SetLogger(new WindowsLoggerProvider());
 }
 
 int main()
@@ -20,7 +18,7 @@ int main()
         OpenGLRender renderer;
         const char* title = "OpenGL Renderer";
         std::string msg = "Main init";
-        ServiceLocator::GetLogger()->Log(msg.c_str(), __FILE__, __LINE__);
+        ServiceLocator::GetLogger()->Log(msg.c_str());
 
         if(renderer.Init(1920, 1080, title) == -1)
         {

@@ -5,10 +5,10 @@
 class ServiceLocator
 {
         public:
-                static const Logger* GetLogger();
-                static void SetLogger(const Logger& logger);
+                static Logger* GetLogger();
+                static void SetLogger(Logger* logger);
                 static void ClearRegisteredServices();
         private:
-                static const Logger* loggerService;
+                static Logger* loggerService;
 };
-                
+

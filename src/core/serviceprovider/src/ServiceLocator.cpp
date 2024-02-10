@@ -1,18 +1,19 @@
 #include "ServiceLocator.h"
 
-const Logger* ServiceLocator::loggerService = nullptr;
+Logger* ServiceLocator::loggerService = nullptr;
 
-const Logger* ServiceLocator::GetLogger()
+Logger* ServiceLocator::GetLogger()
 {
         return loggerService;
 }
 
-void ServiceLocator::SetLogger(const Logger& logger)
+void ServiceLocator::SetLogger(Logger* logger)
 {
-        ServiceLocator::loggerService = &logger;
+        logger->Init();
+        ServiceLocator::loggerService = logger;
 }
 
 void ServiceLocator::ClearRegisteredServices()
 {
-        delete &loggerService;
+        delete loggerService;
 }
