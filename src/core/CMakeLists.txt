@@ -1,4 +1,9 @@
-add_library(CORE 
-                src/test.cpp)
+SET(CORE_MODULES
+                Logging
+                ServiceProvider
+   )
 
-target_include_directories(CORE PRIVATE "include")
+foreach(MODULE ${CORE_MODULES})
+        message("Adding core module: ${MODULE}")
+        add_subdirectory(${MODULE})
+        endforeach()
