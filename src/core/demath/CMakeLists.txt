@@ -1,3 +1,2 @@
-add_library(DEMath INTERFACE)
-        
-target_include_directories(DEMath INTERFACE "include")
+add_library(DEMath "src/DEMath.cpp")
+target_include_directories(DEMath PUBLIC "include")

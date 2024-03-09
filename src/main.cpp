@@ -2,8 +2,14 @@
 #include <string>
 
 #include "ServiceLocator.h"
-#include "OpenGLRender.h"
 #include "WindowsLoggerProvider.h"
+#include "OpenGLRender.h"
+
+#include "Scene.h"
+#include "GameObject.h"
+#include "Model.h"
+#include "GLMesh.h"
+#include "GLShader.h"
 
 #include "DesperationConfig.h"
 
@@ -18,26 +24,32 @@ int main()
         OpenGLRender renderer;
         const char* title = "OpenGL Renderer";
         std::string msg = "Main init";
-        ServiceLocator::GetLogger()->Log(msg.c_str());
+        DELOG("Main init");
 
         if(renderer.Init(1920, 1080, title) == -1)
         {
-                ServiceLocator::GetLogger()->Error("Renderer failed to init", __FILE__, __LINE__);
+                std::string msg = "Renderer failed to init";
+                DEERROR(msg.c_str(), __FILE__, __LINE__);
                 return -1;
         }
-        double renderTime = 0.0;
-        double amt = 0.01;
-        while(renderer.Render(renderTime) > -1)
+        Scene scene;
+
+        GLShader shader;
+        shader.LoadShaderSourceFromFile(NULL);
+        
+        GameObject gameObject;
+        GLMesh mesh;
+        mesh.LoadFromFile(NULL);
+        Model model {mesh};
+
+        scene.RegisterModelWithGLShader(shader, model);
+
+        while(renderer.Render(scene) > -1)
         {
-                renderTime += amt;
-                if(renderTime >= 1 || renderTime <= -1)
-                {
-                        amt *= -1;
-                }
                 // we're cooking with gas baby
         }
         // std::string testMessage = "Hello World!" + " Your version number is: " + DesperationEngine_VERSION_MAJOR + "." + DesperationEngine_VERSION_MINOR;
         std::string testMessage = "Hello World!";
-        ServiceLocator::GetLogger()->Log(testMessage.c_str(), __FILE__, __LINE__);
+        DELOGF(testMessage.c_str(), __FILE__, __LINE__);
         return 0;
 }

@@ -3,6 +3,16 @@
 #include <iostream>
 #include <cassert>
 
+#ifndef DEBUG
+#define DELOG(message)
+#define DELOGF(message, file, line)
+#define DEERROR(message, file, line)
+#else
+#define DELOG(message) ServiceLocator::GetLogger()->Log(message)
+#define DELOGF(message, file, line) ServiceLocator::GetLogger()->Log(message, file, line)
+#define DEERROR(message, file, line) ServiceLocator::GetLogger()->Error(message, file, line)
+#endif
+
 class Logger
 {
         public:
